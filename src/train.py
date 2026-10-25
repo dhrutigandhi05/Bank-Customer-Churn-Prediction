@@ -10,6 +10,7 @@ from src.preprocess import (
     split_data,
     create_preprocessor
 )
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 
 def create_models(X_train):
     models = {
@@ -23,6 +24,26 @@ def create_models(X_train):
             ("classifier", DecisionTreeClassifier(
                 max_depth=10,
                 criterion="entropy",
+                random_state=42
+            ))
+        ]),
+
+        "random_forest": Pipeline([
+            ("preprocessor", create_preprocessor(X_train)),
+            ("classifier", RandomForestClassifier(
+                n_estimators=200,
+                max_depth=15,
+                random_state=42,
+                n_jobs=-1
+            ))
+        ]),
+
+        "gradient_boosting": Pipeline([
+            ("preprocessor", create_preprocessor(X_train)),
+            ("classifier", GradientBoostingClassifier(
+                n_estimators=200,
+                learning_rate=0.1,
+                max_depth=3,
                 random_state=42
             ))
         ])
