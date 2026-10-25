@@ -11,15 +11,12 @@ Model Serialization: Joblib
 Testing: Pytest
 
 ## Models & Results
-Trained and compared Logistic Regression and Decision Tree classifiers using 5-fold cross-validation.
-
-The Decision Tree  with max depth 10 got the best F1 score.
+Trained and compared Logistic Regression, Decision Tree, Random Forest, and Gradient Boosting classifiers using 5-fold cross-validation.
+Gradient Boosting got the highest cross-validation F1 score (0.5873).
 
 | Metric | Test Score |
 |---|---|
-| Accuracy | 83.95% |
-| Precision | 64.73% |
-| Recall | 46.44% |
-| F1 Score | 54.08% |
-
-This project applies concepts including descriptive statistics, correlation, logistic regression, decision trees, entropy, and information gain.
+| Accuracy | 86.70% |
+| Precision | 76.80% |
+| Recall | 49.63% |
+| F1 Score | 60.30% |
